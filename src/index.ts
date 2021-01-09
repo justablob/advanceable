@@ -58,18 +58,32 @@ export default class Advanceable {
   }
 
   readUInt8() { return this.readUIntBE(1) }
+
   readUInt16BE() { return this.readUIntBE(2) }
   readUInt24BE() { return this.readUIntBE(3) }
   readUInt32BE() { return this.readUIntBE(4) }
   readUInt40BE() { return this.readUIntBE(5) }
   readUInt48BE() { return this.readUIntBE(6) }
 
+  readUInt16LE() { return this.readUIntLE(2) }
+  readUInt24LE() { return this.readUIntLE(3) }
+  readUInt32LE() { return this.readUIntLE(4) }
+  readUInt40LE() { return this.readUIntLE(5) }
+  readUInt48LE() { return this.readUIntLE(6) }
+
   readInt8() { return this.readIntBE(1) }
+
   readInt16BE() { return this.readIntBE(2) }
   readInt24BE() { return this.readIntBE(3) }
   readInt32BE() { return this.readIntBE(4) }
   readInt40BE() { return this.readIntBE(5) }
   readInt48BE() { return this.readIntBE(6) }
+
+  readInt16LE() { return this.readIntLE(2) }
+  readInt24LE() { return this.readIntLE(3) }
+  readInt32LE() { return this.readIntLE(4) }
+  readInt40LE() { return this.readIntLE(5) }
+  readInt48LE() { return this.readIntLE(6) }
 
   peek(len: number = 1) {
     if (!this.available(len)) return null;
