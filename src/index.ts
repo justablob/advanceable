@@ -57,6 +57,22 @@ export default class Advanceable {
     return this.read(8)?.readBigInt64LE();
   }
 
+  readFloatBE() {
+    return this.read(4)?.readFloatBE();
+  }
+
+  readFloatLE() {
+    return this.read(4)?.readFloatLE();
+  }
+
+  readDoubleBE() {
+    return this.read(8)?.readDoubleBE();
+  }
+
+  readDoubleLE() {
+    return this.read(8)?.readDoubleLE();
+  }
+
   readUInt8() { return this.readUIntBE(1) }
 
   readUInt16BE() { return this.readUIntBE(2) }
@@ -197,6 +213,42 @@ export default class Advanceable {
     if (!this.available(8)) return false;
 
     this.writeBigInt64LE(value);
+    this.offset += 8;
+
+    return true;
+  }
+
+  writeFloatBE(value: bigint) {
+    if (!this.available(4)) return false;
+
+    this.writeFloatBE(value);
+    this.offset += 4;
+
+    return true;
+  }
+
+  writeFloatLE(value: bigint) {
+    if (!this.available(4)) return false;
+
+    this.writeFloatLE(value);
+    this.offset += 4;
+
+    return true;
+  }
+
+  writeDoubleBE(value: bigint) {
+    if (!this.available(8)) return false;
+
+    this.writeDoubleBE(value);
+    this.offset += 8;
+
+    return true;
+  }
+
+  writeDoubleLE(value: bigint) {
+    if (!this.available(8)) return false;
+
+    this.writeDoubleLE(value);
     this.offset += 8;
 
     return true;
